@@ -25,8 +25,8 @@ public class Spider
             int i=100;
             while ((line = rdr.readLine()) != null && i > 0) {
                 i--;
-                System.out.printf("%s\n", line);
-            }
+	
+	    }//while
 
 	    while (line != null) 
 		{
@@ -34,7 +34,7 @@ public class Spider
 		    Matcher matcher = website.matcher(line);
 		    if (matcher.find())
 			m.put(matcher.group(1), false);
-
+		    
 		    String a;
 		    
 		    for(Map.Entry<String, Boolean> en: m.entrySet())
@@ -42,22 +42,17 @@ public class Spider
 			    if(en.getValue() == false)
 				{
 				    a = en.getKey();
-				    str.add(a);
-				    
+				    str.add(a);				    
 				    m.put(a, true);				    
-				}
-			    if(en.getValue() == true)
-				{
-				    for(int j = 0; j < str.size(); j ++)
-					System.out.println("Have been: Key " + str.get(j));
-				}
+				}//if
+			    System.out.println(en.getKey());
 			}
 		    line = rdr.readLine();
-		}
-        }
+		}//while
+        }//try
         catch (Exception ex) {
             System.out.printf("Oops: %s", ex.getMessage());
-        }
+        }//catch
 	
     }
     
