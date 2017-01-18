@@ -14,6 +14,7 @@ public class Yahtzee// extends JFrame
     JFrame frame = new JFrame("Yahtzee!");
     Image one, two, three, four, five, six;
     ImageIcon icon, ic, ico, iconn, iccon, i;
+    boolean roll = true;
 
     public static void main(String[] args)
     {
@@ -40,21 +41,40 @@ public class Yahtzee// extends JFrame
 	
 	b.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent ae) {
-		   
-		    for(int i = 0; i < 5; i ++)
-			{			  
-			    //	    d[i] = new Dice(l);
-			    frame.add(l);
-			    frame.add(la);
-			    frame.add(lab);
-			    frame.add(labe);
-			    frame.add(label);
-			    frame.add(labels);
-			}
+		    frame.remove(b);
+		    frame.add(bu);
+		    int[] numbers = new int[5];
+	
+		    for(int i = 0; i < 5; i++)
+			while(roll == true)
+			    {
+				numbers[i] = rand.nextInt((6-1)+1)+1;
+				if(numbers[i] == 1)
+				    frame.add(l);
+				if(numbers[i] == 2)
+				    frame.add(la);
+				if(numbers[i] == 3)
+				    frame.add(lab);
+				if(numbers[i] == 4)
+				    frame.add(labe);
+				if(numbers[i] == 5)
+				    frame.add(label);
+				if(numbers[i] == 6)
+				    frame.add(labels);
+				bu.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent ae) {
+					    roll = true;
+					    frame.remove(bu);
+					    frame.add(b);
+					}					    
+				    });//bu
+				roll = false;
+			
+		   		
+			    }//while
 		}
-	    });  
-
-
+	    });//b
+	    
 
 
 	frame.setVisible(true);
