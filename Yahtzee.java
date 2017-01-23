@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.net.URL;
 import java.util.Random;
 
+/**
+ * This program will run a game of Yahtzee for the user. Using threads, dice will be rolled.
+ */
+
 public class Yahtzee// extends JFrame
 {
     JButton b = new JButton("Roll");
@@ -18,6 +22,10 @@ public class Yahtzee// extends JFrame
     {
 	Yahtzee y = new Yahtzee();	
     }
+
+    /**
+     * The constructor for the Yahtzee class sets up the fame, and runs the processes for button clicks.
+     */
 
     public Yahtzee()
     {
@@ -60,7 +68,9 @@ public class Yahtzee// extends JFrame
 	
     }
 
-
+    /**
+     * This method sets up the images so that they are displayable, using URL and Toolkit.
+     */
     
     public void set_icons()
     {
@@ -103,7 +113,9 @@ public class Yahtzee// extends JFrame
     
 }   //end class 
 
-
+/**
+ * Dice class that implements runnable. This will cause the program to sleep.
+ */
 
 class Dice implements Runnable
 {
