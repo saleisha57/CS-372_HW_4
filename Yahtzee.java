@@ -11,7 +11,7 @@ public class Yahtzee// extends JFrame
     Random rand = new Random();
     JLabel[] l = new JLabel[6];
     ImageIcon[] icons;
-    Dice[] d = new Dice[6];
+    Dice[] d = new Dice[5];
     Thread[] t = new Thread[5];
    
     public static void main(String[] args)
@@ -34,7 +34,7 @@ public class Yahtzee// extends JFrame
 	
 	b.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent ae) {
-		    for(int i = 0; i < 6; i ++)
+		    for(int i = 0; i < 5; i ++)
 			d[i] = new Dice(l[rand.nextInt(6)]);
 		    for(int i = 0; i < 5; i++)
 			{
@@ -43,10 +43,6 @@ public class Yahtzee// extends JFrame
 			    	Thread.sleep(100);
 			    }
 			    catch(InterruptedException ie) {;}
-			    //try{
-			    //	t[i].join();
-			    //}
-			    // catch(InterruptedException ex) {;}
 			}		   
 		    for(int i = 0; i < 5; i ++)
 		    	t[i].start();
@@ -112,8 +108,7 @@ public class Yahtzee// extends JFrame
 class Dice implements Runnable
 {
     JLabel label;
-    Random rand = new Random();
-    
+       
     public Dice(JLabel l)
     {
 	label = l;
@@ -121,11 +116,6 @@ class Dice implements Runnable
 
     public void run()
     {
-
-	//	for(int i = 5; i >= 0; i--)
-	    // label.setText(String.format("%d", (rand.nextInt(6-1)+1)+1));
-		
-
 	try
 	    {
 		Thread.sleep(100);
@@ -134,14 +124,5 @@ class Dice implements Runnable
 	    {
 		;
 	    }
-
-
-    }
-
- 
-    
-    
+    }    
 }
-
-
-
